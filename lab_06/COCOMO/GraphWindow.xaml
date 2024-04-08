@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:COCOMO"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Experiment" Height="900" Width="1800" ResizeMode="NoResize">
+        Title="Experiment" Height="832" Width="1542" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <lvc:CartesianChart x:Name="Chart2" Margin="900,10,10,10" />
-        <lvc:CartesianChart x:Name="Chart1" Margin="10,10,932,10" />
+        <lvc:CartesianChart x:Name="Chart2" Margin="776,10,10,10" />
+        <lvc:CartesianChart x:Name="Chart1" Margin="10,10,771,10" />
     </Grid>
 </Window>

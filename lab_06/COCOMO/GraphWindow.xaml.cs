@@ -35,7 +35,7 @@ namespace COCOMO
             List<double> times = new List<double>();
 
             string value = "Номинальный";
-            double kloc = 20;
+            double kloc = 55;
 
             double modp = _dictList[15]["Очень низкий"];
             double tool = _dictList[16]["Очень низкий"];
@@ -279,7 +279,7 @@ namespace COCOMO
             double sced = _dictList[17][value];
 
             return rely * data * cplx * time * stor * virt * turn * acap *
-                turn * aexp * pcap * vexp * lexp * modp * tool * sced;
+                aexp * pcap * vexp * lexp * modp * tool * sced;
         }
 
         private readonly List<Dictionary<string, double>> _dictList;

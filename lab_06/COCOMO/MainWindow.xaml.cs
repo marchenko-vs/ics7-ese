@@ -45,7 +45,7 @@ namespace COCOMO
             double sced = _scedDict[ScedOption.SelectedValue as string];
         
             return rely * data * cplx * time * stor * virt * turn * acap * 
-                turn * aexp * pcap * vexp * lexp * modp * tool * sced;
+                aexp * pcap * vexp * lexp * modp * tool * sced;
         }
 
         private void MakeExperiment(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace COCOMO
             GraphWindow graphWindow = new GraphWindow(new List<Dictionary<string, double>>
             {
                 _modeCoeffDict,
-                _modePowTrudDict,
+                _modePowLaborCostDict,
                 _modePowTimeDict,
                 _relyDict,
                 _dataDict,
@@ -80,7 +80,7 @@ namespace COCOMO
             double kloc = Convert.ToDouble(KlocTextBox.Text);
             double eaf = GetEaf();
 
-            double laborCost = _modeCoeffDict[mode] * eaf * Math.Pow(kloc, _modePowTrudDict[mode]);
+            double laborCost = _modeCoeffDict[mode] * eaf * Math.Pow(kloc, _modePowLaborCostDict[mode]);
             double time = 2.5 * Math.Pow(laborCost, _modePowTimeDict[mode]);
 
             CycleLaborCostStage1.Text = Math.Round(0.08 * laborCost, 2).ToString();
@@ -153,7 +153,7 @@ namespace COCOMO
             {"Промежуточный", 3.0},
             {"Встроенный", 2.8}
         };
-        private readonly Dictionary<string, double> _modePowTrudDict = new Dictionary<string, double>()
+        private readonly Dictionary<string, double> _modePowLaborCostDict = new Dictionary<string, double>()
         {
             {"Обычный", 1.05},
             {"Промежуточный", 1.12},
