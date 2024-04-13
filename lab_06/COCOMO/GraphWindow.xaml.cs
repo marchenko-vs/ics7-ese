@@ -38,9 +38,9 @@ namespace COCOMO
             double kloc = 55;
 
             double modp = _dictList[15]["Очень низкий"];
-            double tool = _dictList[16]["Очень низкий"];
-            double acap = _dictList[10]["Очень низкий"];
-            double pcap = _dictList[12]["Очень низкий"];
+            double tool = _dictList[16]["Низкий"];
+            double acap = _dictList[10]["Низкий"];
+            double pcap = _dictList[12]["Низкий"];
             double eaf = GetEaf(value, modp, tool, acap, pcap);
             
             laborCosts.Add(_dictList[0]["Промежуточный"] * eaf * Math.Pow(kloc, _dictList[1]["Промежуточный"]));
@@ -66,10 +66,10 @@ namespace COCOMO
             laborCosts.Add(_dictList[0]["Промежуточный"] * eaf * Math.Pow(kloc, _dictList[1]["Промежуточный"]));
             times.Add(2.5 * Math.Pow(laborCosts[4], _dictList[2]["Промежуточный"]));
 
-            modp = _dictList[15]["Очень низкий"];
+            modp = _dictList[15]["Низкий"];
             tool = _dictList[16]["Очень низкий"];
-            acap = _dictList[10]["Очень низкий"];
-            pcap = _dictList[12]["Очень низкий"];
+            acap = _dictList[10]["Низкий"];
+            pcap = _dictList[12]["Низкий"];
             eaf = GetEaf(value, modp, tool, acap, pcap);
 
             laborCosts.Add(_dictList[0]["Промежуточный"] * eaf * Math.Pow(kloc, _dictList[1]["Промежуточный"]));
@@ -95,10 +95,10 @@ namespace COCOMO
             laborCosts.Add(_dictList[0]["Промежуточный"] * eaf * Math.Pow(kloc, _dictList[1]["Промежуточный"]));
             times.Add(2.5 * Math.Pow(laborCosts[9], _dictList[2]["Промежуточный"]));
 
-            modp = _dictList[15]["Очень низкий"];
-            tool = _dictList[16]["Очень низкий"];
+            modp = _dictList[15]["Низкий"];
+            tool = _dictList[16]["Низкий"];
             acap = _dictList[10]["Очень низкий"];
-            pcap = _dictList[12]["Очень низкий"];
+            pcap = _dictList[12]["Низкий"];
             eaf = GetEaf(value, modp, tool, acap, pcap);
 
             laborCosts.Add(_dictList[0]["Промежуточный"] * eaf * Math.Pow(kloc, _dictList[1]["Промежуточный"]));
@@ -124,9 +124,9 @@ namespace COCOMO
             laborCosts.Add(_dictList[0]["Промежуточный"] * eaf * Math.Pow(kloc, _dictList[1]["Промежуточный"]));
             times.Add(2.5 * Math.Pow(laborCosts[14], _dictList[2]["Промежуточный"]));
 
-            modp = _dictList[15]["Очень низкий"];
-            tool = _dictList[16]["Очень низкий"];
-            acap = _dictList[10]["Очень низкий"];
+            modp = _dictList[15]["Низкий"];
+            tool = _dictList[16]["Низкий"];
+            acap = _dictList[10]["Низкий"];
             pcap = _dictList[12]["Очень низкий"];
             eaf = GetEaf(value, modp, tool, acap, pcap);
 
