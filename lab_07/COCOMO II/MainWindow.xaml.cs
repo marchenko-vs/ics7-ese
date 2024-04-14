@@ -34,11 +34,21 @@ namespace COCOMO
             double archBudget = archLaborCost * Convert.ToDouble(WageTextBox.Text) * 1000;
             Int32 archStaff = Convert.ToInt32(archLaborCost / archTime);
 
-
             ArchLaborCostTextBox.Text = Math.Round(archLaborCost, 2).ToString();
             ArchTimeTextBox.Text = Math.Round(archTime, 2).ToString();
             ArchBudgetTextBox.Text = Math.Round(archBudget, 2).ToString();
             ArchStaffTextBox.Text = archStaff.ToString();
+
+            double nop = CountNop() * ((100.0 - Convert.ToDouble(RuseTextBox.Text)) / 100.0);
+            double compositionLaborCost = CompositionLaborCost(nop);
+            double compositionTime = ArchTime(compositionLaborCost, cocomo2pow);
+            double compositionBudget = compositionLaborCost * Convert.ToDouble(WageTextBox.Text) * 1000;
+            Int32 compositionStaff = Convert.ToInt32(compositionLaborCost / compositionTime);
+
+            CompositionLaborCostTextBox.Text = Math.Round(compositionLaborCost, 2).ToString();
+            CompositionTimeTextBox.Text = Math.Round(compositionTime, 2).ToString();
+            CompositionBudgetTextBox.Text = Math.Round(compositionBudget, 2).ToString();
+            CompositionStaffTextBox.Text = compositionStaff.ToString();
         }
 
         private double CountCocomo2Power()
@@ -61,6 +71,17 @@ namespace COCOMO
                     Convert.ToDouble(ScedOption.SelectedValue));
         }
 
+        private double CountNop()
+        {
+            return Convert.ToDouble(SimpleFormsTextBox.Text) * 1 +
+                   Convert.ToDouble(MiddleFormsTextBox.Text) * 2 +
+                   Convert.ToDouble(HardFormsTextBox.Text) * 3 +
+                   Convert.ToDouble(SimpleReportsTextBox.Text) * 2 +
+                   Convert.ToDouble(MiddleReportsTextBox.Text) * 5 +
+                   Convert.ToDouble(HardReportsTextBox.Text) * 8 +
+                   Convert.ToDouble(ThirdGenLangTextBox.Text) * 10;
+        }
+
         private double ArchLaborCost()
         {
             return 2.45 * CountEArch() * Math.Pow(Convert.ToDouble(KlocTextBox.Text), CountCocomo2Power());
@@ -71,14 +92,20 @@ namespace COCOMO
             return 3.0 * Math.Pow(laborCost, 0.33 + 0.2 * (cocomo2Power - 1.01));
         }
 
-        private double CompositionLaborCost()
+        private double CompositionLaborCost(double nop)
         {
-            return 2.45 * CountEArch() * Math.Pow(20, CountCocomo2Power());
+            return nop / Convert.ToDouble(ExperienceOption.SelectedValue);
         }
 
         private double CompositionTime(double laborCost, double cocomo2Power)
         {
             return 3.0 * Math.Pow(laborCost, 0.33 + 0.2 * (cocomo2Power - 1.01));
+        }
+
+        private void FunctionalPoints(object sender, RoutedEventArgs e)
+        {
+            var fpWindow = new FPWindow();
+            fpWindow.Show();
         }
     }
 }
