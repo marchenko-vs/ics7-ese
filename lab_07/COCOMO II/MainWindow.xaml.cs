@@ -32,7 +32,7 @@ namespace COCOMO
             double archLaborCost = ArchLaborCost();
             double archTime = ArchTime(archLaborCost, cocomo2pow);
             double archBudget = archLaborCost * Convert.ToDouble(WageTextBox.Text) * 1000;
-            Int32 archStaff = Convert.ToInt32(archLaborCost / archTime);
+            Int32 archStaff = Convert.ToInt32(Math.Ceiling(archLaborCost / archTime));
 
             ArchLaborCostTextBox.Text = Math.Round(archLaborCost, 2).ToString();
             ArchTimeTextBox.Text = Math.Round(archTime, 2).ToString();
@@ -43,7 +43,7 @@ namespace COCOMO
             double compositionLaborCost = CompositionLaborCost(nop);
             double compositionTime = ArchTime(compositionLaborCost, cocomo2pow);
             double compositionBudget = compositionLaborCost * Convert.ToDouble(WageTextBox.Text) * 1000;
-            Int32 compositionStaff = Convert.ToInt32(compositionLaborCost / compositionTime);
+            Int32 compositionStaff = Convert.ToInt32(Math.Ceiling(compositionLaborCost / compositionTime));
 
             CompositionLaborCostTextBox.Text = Math.Round(compositionLaborCost, 2).ToString();
             CompositionTimeTextBox.Text = Math.Round(compositionTime, 2).ToString();

@@ -75,5 +75,10 @@ namespace COCOMO
                     Convert.ToDouble(MiddleEIFTextBox.Text) * 7 +
                     Convert.ToDouble(HighEIFTextBox.Text) * 1;
         }
+
+        private void MiddleEITextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
